@@ -39,5 +39,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adonisjs/adonis-middleware-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adonisjs/adonis-middleware-base/issues"
+  },
+  "homepage": "https://github.com/adonisjs/adonis-middleware-base#readme"
 }
