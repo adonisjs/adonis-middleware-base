@@ -21,6 +21,7 @@ const CoCompose = require('co-compose')
  * but used
  *
  * @method
+ * @private
  *
  * @param  {String} name
  *
@@ -35,6 +36,7 @@ const missingNamedMiddleware = (name) => {
  * string
  *
  * @method
+ * @private
  *
  * @return {String}
  */
@@ -47,6 +49,7 @@ const invalidMiddlewareType = () => {
  * found
  *
  * @method
+ * @private
  *
  * @param  {String} type
  * @param  {String} middleware
@@ -237,6 +240,16 @@ class MiddlewareBase {
    * @param  {Array}       middleware
    *
    * @return {void}
+   *
+   * @throws {InvalidArgumentException} If middleware is not an array
+   *
+   * @example
+   * ```js
+   * middleware.registerGlobal([
+   *   'Adonis/Middleware/BodyParser',
+   *   'Adonis/Middleware/Session'
+   * ])
+   * ```
    */
   registerGlobal (middleware) {
     this._registerMiddleware('global', middleware, 'registerGlobal method accepts an array of middleware')
@@ -250,6 +263,13 @@ class MiddlewareBase {
    * @param  {Array} middleware
    *
    * @return {void}
+   *
+   * @throws {InvalidArgumentException} If middleware is not an array
+   *
+   * @example
+   * ```js
+   * middleware.use(['Adonis/Middleware/Static'])
+   * ```
    */
   use (middleware) {
     this._registerMiddleware('server', middleware, 'use method accepts an array of middleware')
@@ -263,6 +283,15 @@ class MiddlewareBase {
    * @param  {Object}      middleware
    *
    * @return {void}
+   *
+   * @throws {InvalidArgumentException} If middleware is not an object with key/value pair.
+   *
+   * @example
+   * ```js
+   * middleware.registerNamed({
+   *   auth: 'Adonis/Middleware/Auth'
+   * })
+   * ```
    */
   registerNamed (middleware) {
     if (!_.isPlainObject(middleware)) {
