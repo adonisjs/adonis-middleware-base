@@ -9,7 +9,9 @@
     "posttest": "npm run coverage",
     "test": "nyc japa",
     "test:win": "node ./node_modules/japa-cli/index.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "adonisjs",
@@ -33,7 +35,8 @@
     "co-compose": "^4.0.0",
     "debug": "^3.1.0",
     "haye": "^2.0.1",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "snyk": "^1.316.1"
   },
   "config": {
     "commitizen": {
@@ -50,5 +53,6 @@
   "bugs": {
     "url": "https://github.com/adonisjs/adonis-middleware-base/issues"
   },
-  "homepage": "https://github.com/adonisjs/adonis-middleware-base#readme"
+  "homepage": "https://github.com/adonisjs/adonis-middleware-base#readme",
+  "snyk": true
 }
